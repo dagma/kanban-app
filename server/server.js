@@ -34,6 +34,7 @@ import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
 import posts from './routes/post.routes';
 import lanes from './routes/lane.routes';
+import notes from './routes/note.routes';
 import dummyData from './dummyData';
 import serverConfig from './config';
 
@@ -58,7 +59,8 @@ app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use('/api', posts);
 app.use('/api', lanes);
-
+app.use('/api', notes);
+console.log("server");
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
   const head = Helmet.rewind();
